@@ -12,14 +12,16 @@ WORK_DIR=~/STR_Expansions_Example_Workflow
 
 ## Required input
 
-The targeted repeat expansion methods require the following input information:
+We run two targeted repeat expansion methods, ExpansionHunter and exSTRa, to search for expansions at known, disease-associated STR loci.
+
+These methods require the following input:
 
 - list of BAM files to search for expansions
 - reference genome that BAM files were aligned to
 - database of known repeats to search for expansions (separate file for each method)
 - output directory to store results
 
-For the example workflow, we specify the following:
+For the example workflow, we specify the following inputs
 
 ```bash
 BAMS=`ls $WORK_DIR/minibam/*.bam`
@@ -67,4 +69,7 @@ Run ExpansionHunter: process each BAM file individually (looping over all BAMs)
 exSTRa_score.pl $REFERENCE $REPEATDB_EXSTRA $BAMS \
     > $RESULTS_DIR/exSTRa/exSTRa_scores.txt 2> $RESULTS_DIR/exSTRa/exSTRa.log
 ```
+
+
+
 

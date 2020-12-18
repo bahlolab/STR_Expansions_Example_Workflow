@@ -18,10 +18,13 @@ tar xvzf ExpansionHunter-v4.0.1-linux_x86_64.tar.gz
 ln -s ExpansionHunter-v4.0.1-linux_x86_64/bin/ExpansionHunter
 
 
+# Download GraphAlignmentViewer
+git clone https://github.com/Illumina/GraphAlignmentViewer.git
+
+
 # Install exSTRa (Perl module for raw data processing and R package for analysis)
 # - requires htslib (http://www.htslib.org)
 
-cd $WORK_DIR/tools
 git clone https://github.com/bahlolab/Bio-STR-exSTRa.git
 cd Bio-STR-exSTRa
 
@@ -36,7 +39,7 @@ perl Build.PL
 ./Build install
 
 # Install R package
-# R -e 'install.packages("devtools")'  # (if devtools is not installed)
+R -e 'install.packages("devtools")'  # (if devtools is not installed)
 R -e 'devtools::install_github("bahlolab/exSTRa")'
 
 

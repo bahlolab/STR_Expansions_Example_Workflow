@@ -27,6 +27,15 @@ tar xvzf ExpansionHunter-v4.0.1-linux_x86_64.tar.gz
 ln -s ExpansionHunter-v4.0.1-linux_x86_64/bin/ExpansionHunter
 ```
 
+ExpansionHunter output can (optionally) be manually inspected to help remove errors by visualising the alignments contributing to the predicted genotypes using `GraphAlignmentViewer`.
+
+Download `GraphAlignmentViewer.py` (requires Python 3):
+
+```bash
+git clone https://github.com/Illumina/GraphAlignmentViewer.git
+```
+
+
 ## Install exSTRa
 
 exSTRa consists of a Perl module for raw data processing and an R package for analysis.
@@ -35,15 +44,23 @@ exSTRa consists of a Perl module for raw data processing and an R package for an
 
 2. Install exSTRa Perl module
 
+Download from GitHub
+
 ```bash
-# Download from GitHub
 git clone https://github.com/bahlolab/Bio-STR-exSTRa.git
-cd Bio-STR-exSTRa
+```
 
-# Install Bio::Perl (if not installed already)
+Install Bio::Perl (if not installed already)
+
+```bash
 cpanm 'Bio::Perl'
+```
 
-# Install exSTRa Perl package
+Install the exSTRa Perl package `Bio-STR-exSTRa`
+
+```bash
+cd $WORK_DIR/tools/Bio-STR-exSTRa
+
 perl Build.PL
 ./Build installdeps
 ./Build
@@ -53,8 +70,15 @@ perl Build.PL
 
 3. Install exSTRa R package
 
+Install the `devtools` R package first (if not installed)
+
+```bash
+R -e 'install.packages("devtools")'  # (if devtools is not installed)
 ```
-# R -e 'install.packages("devtools")'  # (if devtools is not installed)
+
+Install the exSTRa R package
+
+```bash
 R -e 'devtools::install_github("bahlolab/exSTRa")'
 ```
 
